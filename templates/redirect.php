@@ -1,7 +1,16 @@
+<?php
+// header('HTTP/1.1 503 Service Temporarily Unavailable');
+// header('Status: 503 Service Temporarily Unavailable');
+// header('Retry-After: 3600');
+?>
 <html>
-</head>
-<title>Eventjes Niet bereikbaar</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<head>
+  <title>Eventjes Niet bereikbaar</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <?php wp_head(); ?>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body style="height:100%; background-color:#eee;color:#5980EC;">
   <div class="container">
@@ -21,4 +30,5 @@
       </div>
     </div>
   </div>
+  <?php wp_footer(); ?>
 </body>
