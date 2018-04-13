@@ -86,6 +86,44 @@ add_filter( 'login_headerurl', function ($url) {
 add_filter( 'login_headertitle', function() {
     return 'IMAGA ~ ken Uw Klant';
 });
+add_filter( 'login_message', function($message){
+
+    if( get_option('DEVELOPMENT_MODE') == FALSE ):
+      if ( empty($message) ){
+        return '<p class="text-center">Please log in to continue</p>';
+      } else {
+        return $message;
+      }
+    else:
+      if ( empty($message) ){
+        return '<p class="text-center">Restricted to Authorized Personel only</p>';
+      } else {
+        return $message;
+      }
+    endif;
+
+
+});
+add_filter( 'login_errors', function($error){
+
+  global $errors;
+$err_codes = $errors->get_error_codes();
+
+// Invalid username.
+// Default: '<strong>ERROR</strong>: Invalid username. <a href="%s">Lost your password</a>?'
+if ( in_array( 'invalid_username', $err_codes ) ) {
+  $error = '<strong>ERROR</strong>: Invalid username.';
+}
+
+// Incorrect password.
+// Default: '<strong>ERROR</strong>: The password you entered for the username <strong>%1$s</strong> is incorrect. <a href="%2$s">Lost your password</a>?'
+if ( in_array( 'incorrect_password', $err_codes ) ) {
+  $error = '<strong>ERROR</strong>: The password you entered is incorrect.';
+}
+
+return $error;
+
+});
 
 
 add_action( 'admin_init', function(){
