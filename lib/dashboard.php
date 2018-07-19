@@ -22,6 +22,6 @@ add_action( 'wp_dashboard_setup', 'example_add_dashboard_widgets' );
  */
 function site_status_dashboard_widget_function() {
 
-  require_once( dirname( __FILE__ ) . '/templates/dashboard_widget.php' );
+  require_once( dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'dashboard_widget.php' );
 
 }
